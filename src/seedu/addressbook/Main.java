@@ -13,6 +13,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import java.io.FileNotFoundException;
+
 
 /**
  * Entry point of the Address Book application.
@@ -30,13 +32,21 @@ public class Main {
     /** The list of person shown to the user most recently.  */
     private List<? extends ReadOnlyPerson> lastShownList = Collections.emptyList();
 
-
-    public static void main(String... launchArgs) {
+    /** 
+     * @throws FileNotFoundException if file is not found during runtime
+     * 
+     * */
+    public static void main(String... launchArgs) throws FileNotFoundException{
         new Main().run(launchArgs);
     }
 
-    /** Runs the program until termination.  */
-    public void run(String[] launchArgs) {
+    /** 
+     * Runs the program until termination.  
+     * 
+     * @throws FileNotFoundException if file is not found during runtime
+     * 
+     * */
+    public void run(String[] launchArgs) throws FileNotFoundException {
         start(launchArgs);
         runCommandLoopUntilExitCommand();
         exit();
@@ -46,9 +56,10 @@ public class Main {
      * Sets up the required objects, loads up the data from the storage file, and prints the welcome message.
      *
      * @param launchArgs arguments supplied by the user at program launch
+     * @throws FileNotFoundException if file is not found during runtime
      *
      */
-    private void start(String[] launchArgs) {
+    private void start(String[] launchArgs) throws FileNotFoundException {
         try {
             this.ui = new TextUi();
             this.storage = initializeStorage(launchArgs);

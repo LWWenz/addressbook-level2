@@ -33,7 +33,9 @@ public class UniquePersonList implements Iterable<Person> {
      * Signals that an operation targeting a specified person in the list would fail because
      * there is no such matching person in the list.
      */
-    public static class PersonNotFoundException extends Exception {}
+    public static class PersonNotFoundException extends Exception {
+    	
+    }
 
     private final List<Person> internalList = new ArrayList<>();
 
