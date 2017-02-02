@@ -20,7 +20,7 @@ public class CommandResult {
         this.feedbackToUser = feedbackToUser;
         relevantPersons = null;
     }
-    public String GetFeedback() {
+    public String getFeedbackToUser() {
     	return feedbackToUser;
     }
 
