@@ -5,6 +5,7 @@ import seedu.addressbook.storage.StorageFile.*;
 
 import seedu.addressbook.commands.*;
 import seedu.addressbook.data.AddressBook;
+import seedu.addressbook.data.Tagging;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
@@ -49,7 +50,14 @@ public class Main {
     public void run(String[] launchArgs) throws FileNotFoundException {
         start(launchArgs);
         runCommandLoopUntilExitCommand();
+        printAllTaggings();
         exit();
+    }
+    
+    public void printAllTaggings(){
+    	for(Tagging t : addressBook.getAllTaggings()) {
+    		System.out.println();
+    	}
     }
 
     /**
