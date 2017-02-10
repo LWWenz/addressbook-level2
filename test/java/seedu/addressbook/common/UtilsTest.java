@@ -3,6 +3,7 @@ package seedu.addressbook.common;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,6 +61,14 @@ public class UtilsTest {
         assertNotUnique(null, 1, new Integer(1));
         assertNotUnique(null, null);
         assertNotUnique(null, "a", "b", null);
+    }
+    
+    public void emptyArrayList() throws Exception {
+    	assertTrue(Utils.elementsAreUnique(new ArrayList<Object>()));
+    }
+    
+    public void duplicateNames() throws Exception {
+    	assertTrue(Utils.elementsAreUnique(new ArrayList<Object>(Arrays.asList("Bob", "John", "Bob"))));
     }
 
     private void assertAreUnique(Object... objects) {
